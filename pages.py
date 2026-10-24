@@ -41,6 +41,7 @@ CLINICS = {
     "camp-verde": {
         "name": "Camp Verde", "full": "Camp Verde Clinic",
         "street": "385 S. Main Street", "city": "Camp Verde", "zip": "86322",
+        "phone": "(928) 222-2218", "tel": "+19282222218",
         "maps": "https://www.google.com/maps/search/?api=1&query=385+S+Main+St+Camp+Verde+AZ+86322",
         "nearby": "Camp Verde, Cottonwood, Rimrock, Lake Montezuma and the Verde Valley",
     },
@@ -126,7 +127,7 @@ def chrome(L, A, page, body):
     <div><h2>Clinics</h2><ul>
       <li><a href="{L('locations/black-canyon')}">Black Canyon City</a><br>{bc['street']}<br><a href="tel:{bc['tel']}">{bc['phone']}</a></li>
       <li><a href="{L('locations/spring-valley')}">Spring Valley (Mayer)</a><br>{sv['street']}<br><a href="tel:{sv['tel']}">{sv['phone']}</a></li>
-      <li><a href="{L('locations/camp-verde')}">Camp Verde</a> · opening soon</li>
+      <li><a href="{L('locations/camp-verde')}">Camp Verde</a> · opening soon<br><a href="tel:{cv['tel']}">{cv['phone']}</a></li>
     </ul></div>
     <div><h2>Patients</h2><ul>
       <li><a href="{L('schedule-appointment')}">Book an appointment</a></li>
@@ -171,6 +172,7 @@ def clinic_ld(key):
     }
     if c.get("phone"):
         d["telephone"] = c["tel"]
+    if c.get("hours"):
         d["faxNumber"] = "+16233745576"
         d["openingHoursSpecification"] = [
             {"@type": "OpeningHoursSpecification", "dayOfWeek": day, "opens": f"{o:02d}:00", "closes": f"{cl:02d}:00"}
@@ -229,7 +231,7 @@ def loc_card(L, key):
     if key == "camp-verde":
         return f"""<article class="loc"><span class="status soon">Opening soon</span><h3><a href="{L('locations/camp-verde')}">Camp Verde</a></h3>
 <div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span></div>
-<p>Our third clinic, coming to Main Street in Camp Verde. Hours and a phone number will be posted here when we open.</p>
+<p>Our third clinic, coming to Main Street in Camp Verde. Questions? Call <a href="tel:{c['tel']}">{c['phone']}</a>.</p>
 <div class="actions"><a class="btn btn-line" href="{L('locations/camp-verde')}">Learn more</a></div></article>"""
     return f"""<article class="loc"><span class="status" data-status="{key}">Hours below</span><h3><a href="{L('locations/' + key)}">{c['name']}</a></h3>
 <div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span><a href="tel:{c['tel']}">{c['phone']}</a></div>
@@ -298,7 +300,7 @@ def team_row(L, A):
 
 # ----------------------------------------------------------------- pages
 def home(L, A):
-    bc, sv = CLINICS["black-canyon"], CLINICS["spring-valley"]
+    bc, sv, cv = CLINICS["black-canyon"], CLINICS["spring-valley"], CLINICS["camp-verde"]
     return f"""<section class="hero has-photo"><img class="hero-photo" src="{A('img/bradshaw-landscape.jpg')}" alt="Grassland and mountains in central Arizona" width="1140" height="646" fetchpriority="high"><div class="wrap">
   <div>
     <p class="eyebrow">Nonprofit community health center</p>
@@ -311,7 +313,7 @@ def home(L, A):
     <div class="today-head"><h2 id="today-h">Our clinics today</h2><span class="az">Arizona time</span></div>
     <div class="clinic-row"><h3><a href="{L('locations/black-canyon')}">Black Canyon City</a></h3><a class="tel" href="tel:{bc['tel']}">{bc['phone']}</a><span class="status" data-status="black-canyon">Mon–Fri</span><span class="addr">{bc['street']}</span></div>
     <div class="clinic-row"><h3><a href="{L('locations/spring-valley')}">Spring Valley, Mayer</a></h3><a class="tel" href="tel:{sv['tel']}">{sv['phone']}</a><span class="status" data-status="spring-valley">Mon–Fri</span><span class="addr">{sv['street']}</span></div>
-    <div class="clinic-row"><h3><a href="{L('locations/camp-verde')}">Camp Verde</a></h3><span class="status soon">Opening soon</span><span class="addr">385 S. Main Street</span></div>
+    <div class="clinic-row"><h3><a href="{L('locations/camp-verde')}">Camp Verde</a></h3><a class="tel" href="tel:{cv['tel']}">{cv['phone']}</a><span class="status soon">Opening soon</span><span class="addr">385 S. Main Street</span></div>
   </aside>
 </div>{landscape(photo=True)}</section>
 
@@ -496,10 +498,10 @@ def location_page(key):
   <div class="prose">
     <h2>Primary care is coming to the Verde Valley</h2>
     <p>{ORG} is opening its third clinic on Main Street in Camp Verde. We'll offer the same family medicine and preventive care available at our other clinics.</p>
-    <p>Hours, a phone number and online booking will be posted on this page when the clinic opens. Until then, Camp Verde residents are welcome at either of our current clinics.</p>
+    <p>Hours and online booking will be posted on this page when the clinic opens. Questions? Call <a href="tel:{c['tel']}">{c['phone']}</a>. Until then, Camp Verde residents are welcome at either of our current clinics.</p>
     <p><a class="btn btn-line" href="{L('locations')}">See our open clinics</a></p>
   </div>
-  <article class="loc"><span class="status soon">Opening soon</span><h3>Camp Verde Clinic</h3><div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span></div>
+  <article class="loc"><span class="status soon">Opening soon</span><h3>Camp Verde Clinic</h3><div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span><a href="tel:{c['tel']}">{c['phone']}</a></div>
   <div class="actions"><a class="btn btn-line" href="{c['maps']}" rel="noopener">{ICON['pin']}Map</a></div></article>
 </div></section>"""
         other = "spring-valley" if key == "black-canyon" else "black-canyon"
@@ -822,7 +824,7 @@ PAGES = [
 SITE = {
     "chrome": chrome,
     "year": 2026,
-    "updated": "2026-10-23",
+    "updated": "2026-10-24",
     # old Google Site paths that no longer have their own page -> new page
     "redirects": {"home": "", "blog": ""},
 }
