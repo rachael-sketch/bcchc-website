@@ -127,7 +127,7 @@ def chrome(L, A, page, body):
     <div><h2>Clinics</h2><ul>
       <li><a href="{L('locations/black-canyon')}">Black Canyon City</a><br>{bc['street']}<br><a href="tel:{bc['tel']}">{bc['phone']}</a></li>
       <li><a href="{L('locations/spring-valley')}">Spring Valley</a><br>{sv['street']}<br><a href="tel:{sv['tel']}">{sv['phone']}</a></li>
-      <li><a href="{L('locations/camp-verde')}">Camp Verde</a> · opening soon<br><a href="tel:{cv['tel']}">{cv['phone']}</a></li>
+      <li><a href="{L('locations/camp-verde')}">Camp Verde</a> · opening soon<br>{cv['street']}<br><a href="tel:{cv['tel']}">{cv['phone']}</a></li>
     </ul></div>
     <div><h2>Patients</h2><ul>
       <li><a href="{L('schedule-appointment')}">Book an appointment</a></li>
