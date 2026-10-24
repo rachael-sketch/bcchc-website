@@ -16,7 +16,7 @@ Static site for Black Canyon Community Health Center (BCCHC), hosted on GitHub P
 - Never claim FTCA/PHS deemed status unless HRSA has deemed BCCHC (check with Rachael).
 - Keep wording plain, patient-facing, short sentences. Keep the design as is unless Rachael asks.
 - Changes go on a branch with a pull request. Rachael approves by merging. Never push to `main` directly.
-- `employees` page stays `noindex`.
+- `employees` and `sliding-fee-discount-program` pages stay `noindex` (Rachael: don't advertise the sliding fee on Google). Keep the sliding fee page linked on the site for patients; don't mention the sliding fee in titles, meta descriptions, structured data or Google Business Profile.
 
 ## Monthly SEO checklist
 1. Every page loads (200), no broken internal or external links (athena scheduling, portal, payment).
@@ -26,7 +26,7 @@ Static site for Black Canyon Community Health Center (BCCHC), hosted on GitHub P
 5. Search visibility: search Google for the target terms below, note where BCCHC appears.
 6. Suggest 1–3 small content improvements per month that target local searches (e.g., a short FAQ, a service people search for that BCCHC already provides).
 
-Target searches: primary care Black Canyon City AZ · doctor Black Canyon City · family doctor Mayer AZ · clinic Spring Valley AZ · sliding fee clinic Yavapai County · community health center Camp Verde · doctor accepting AHCCCS near Mayer · Medicare wellness visit Black Canyon City.
+Target searches: primary care Black Canyon City AZ · doctor Black Canyon City · family doctor Mayer AZ · clinic Spring Valley AZ · community health center Camp Verde · doctor accepting AHCCCS near Mayer · Medicare wellness visit Black Canyon City.
 
 ## Off-site (Rachael or staff)
 - Google Search Console: verify the domain and submit https://www.blackcanyonhealth.com/sitemap.xml.

@@ -193,7 +193,7 @@ ORG_LD = {
     "email": EMAIL,
     "foundingDate": "1999",
     "nonprofitStatus": "Nonprofit501c3",
-    "description": "Nonprofit Federally Qualified Health Center providing primary and preventive care in rural Yavapai County, Arizona, with a sliding fee discount for patients who qualify.",
+    "description": "Nonprofit Federally Qualified Health Center providing primary and preventive care in rural Yavapai County, Arizona.",
     "sameAs": [FACEBOOK],
 }
 
@@ -795,7 +795,8 @@ PAGES = [
     {"slug": "sliding-fee-discount-program", "body": sliding,
      "title": "Sliding Fee Discount Program | Affordable Care in Yavapai County",
      "description": "Income-based discounts for patients at or below 200% of the federal poverty guidelines. Primary care visits from $20. See the 2026 scale and estimate your discount.",
-     "jsonld": graph(crumbs_ld(("Home", ""), ("Sliding fee discount", "sliding-fee-discount-program")))},
+     "jsonld": graph(crumbs_ld(("Home", ""), ("Sliding fee discount", "sliding-fee-discount-program"))),
+     "noindex": True},
     {"slug": "careers", "body": careers,
      "title": "Careers | Black Canyon Community Health Center",
      "description": "Work in rural Arizona primary care at an NHSC-approved community health center. Providers, medical assistants and front desk staff: send us your resume.",
