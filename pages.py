@@ -30,7 +30,7 @@ CLINICS = {
         "nearby": "Black Canyon City, Rock Springs, Bumble Bee, Cordes Lakes, New River and Anthem",
     },
     "spring-valley": {
-        "name": "Spring Valley (Mayer)", "full": "Spring Valley Clinic",
+        "name": "Spring Valley", "full": "Spring Valley Clinic",
         "street": "17301 E. Spring Valley Road, Suite G", "city": "Mayer", "zip": "86333",
         "phone": "(928) 404-8004", "tel": "+19284048004", "sched": SCHED_SV,
         "geo": None,
@@ -126,7 +126,7 @@ def chrome(L, A, page, body):
     </div>
     <div><h2>Clinics</h2><ul>
       <li><a href="{L('locations/black-canyon')}">Black Canyon City</a><br>{bc['street']}<br><a href="tel:{bc['tel']}">{bc['phone']}</a></li>
-      <li><a href="{L('locations/spring-valley')}">Spring Valley (Mayer)</a><br>{sv['street']}<br><a href="tel:{sv['tel']}">{sv['phone']}</a></li>
+      <li><a href="{L('locations/spring-valley')}">Spring Valley</a><br>{sv['street']}<br><a href="tel:{sv['tel']}">{sv['phone']}</a></li>
       <li><a href="{L('locations/camp-verde')}">Camp Verde</a> · opening soon<br><a href="tel:{cv['tel']}">{cv['phone']}</a></li>
     </ul></div>
     <div><h2>Patients</h2><ul>
@@ -312,7 +312,7 @@ def home(L, A):
   <aside class="today" aria-labelledby="today-h">
     <div class="today-head"><h2 id="today-h">Our clinics today</h2><span class="az">Arizona time</span></div>
     <div class="clinic-row"><h3><a href="{L('locations/black-canyon')}">Black Canyon City</a></h3><a class="tel" href="tel:{bc['tel']}">{bc['phone']}</a><span class="status" data-status="black-canyon">Mon–Fri</span><span class="addr">{bc['street']}</span></div>
-    <div class="clinic-row"><h3><a href="{L('locations/spring-valley')}">Spring Valley, Mayer</a></h3><a class="tel" href="tel:{sv['tel']}">{sv['phone']}</a><span class="status" data-status="spring-valley">Mon–Fri</span><span class="addr">{sv['street']}</span></div>
+    <div class="clinic-row"><h3><a href="{L('locations/spring-valley')}">Spring Valley</a></h3><a class="tel" href="tel:{sv['tel']}">{sv['phone']}</a><span class="status" data-status="spring-valley">Mon–Fri</span><span class="addr">{sv['street']}</span></div>
     <div class="clinic-row"><h3><a href="{L('locations/camp-verde')}">Camp Verde</a></h3><a class="tel" href="tel:{cv['tel']}">{cv['phone']}</a><span class="status soon">Opening soon</span><span class="addr">385 S. Main Street</span></div>
   </aside>
 </div>{landscape(photo=True)}</section>
@@ -321,7 +321,7 @@ def home(L, A):
   <a href="{L('schedule-appointment')}">{ICON['cal']}<strong>Book a visit</strong><span>Online or by phone</span></a>
   <a href="{PORTAL}" rel="noopener">{ICON['portal']}<strong>Patient portal</strong><span>Messages, results, records</span></a>
   <a href="{L('pay-my-bills')}">{ICON['card']}<strong>Pay a bill</strong><span>Secure online payment</span></a>
-  <a href="{L('locations')}">{ICON['pin']}<strong>Locations &amp; hours</strong><span>Black Canyon City and Mayer</span></a>
+  <a href="{L('locations')}">{ICON['pin']}<strong>Locations &amp; hours</strong><span>Black Canyon City, Spring Valley and Camp Verde</span></a>
 </nav></div>
 {announcement(L)}
 <section class="band"><div class="wrap">
@@ -353,7 +353,7 @@ def home(L, A):
 </div></section>
 
 <section class="band"><div class="wrap">
-  <div class="section-head"><p class="eyebrow">Locations</p><h2>Three clinics in Yavapai County</h2><p>Serving {bc['nearby']}, plus the Mayer area and soon the Verde Valley.</p></div>
+  <div class="section-head"><p class="eyebrow">Locations</p><h2>Three clinics in Yavapai County</h2><p>Serving {bc['nearby']}, plus the Spring Valley area and soon the Verde Valley.</p></div>
   <div class="loc-grid">{loc_card(L, 'black-canyon')}{loc_card(L, 'spring-valley')}{loc_card(L, 'camp-verde')}</div>
 </div></section>
 
@@ -464,7 +464,7 @@ def services(L, A):
                                f'Our <a href="{L("sliding-fee-discount-program")}">Sliding Fee Discount Program</a>']),
     ]
     blocks = "".join(f"<div><h2 style=\"font-size:var(--s-3)\">{g}</h2><ul>{''.join(f'<li>{i}</li>' for i in items)}</ul></div>" for g, items in groups)
-    return page_hero(L, "Primary care services", "Family medicine for every stage of life at our clinics in Black Canyon City and Mayer.", [("Services", None)]) + f"""
+    return page_hero(L, "Primary care services", "Family medicine for every stage of life at our clinics in Black Canyon City and Spring Valley, and soon Camp Verde.", [("Services", None)]) + f"""
 <section class="band"><div class="wrap">
   <div class="service-list">{blocks}</div>
 </div></section>
@@ -476,7 +476,7 @@ def services(L, A):
     <div><h3>Prevention at every age</h3><p>Well-child checkups and vaccines, well-woman exams, adult physicals and Medicare Annual Wellness Visits keep screenings up to date.</p></div>
     <div><h3>Help with the whole picture</h3><p>Many patients manage more than one condition. We look at how they affect each other and keep your medications and care plan in one place.</p></div>
     <div><h3>Mental health matters too</h3><p>We screen for depression and anxiety as part of primary care and connect you with counseling in the community when you need more support.</p></div>
-    <div><h3>Close to home</h3><p>Our clinics serve Black Canyon City, Mayer and nearby rural communities, so you don't have to drive to Phoenix or Prescott for everyday care.</p></div>
+    <div><h3>Close to home</h3><p>Our clinics serve Black Canyon City, Spring Valley, Camp Verde and nearby rural communities, so you don't have to drive to Phoenix or Prescott for everyday care.</p></div>
   </div>
 </div></section>
 <section class="band"><div class="wrap"><div class="callout"><div><h2>Not sure if we can help?</h2><p>Call either clinic and ask. If we don't offer a service, we'll help you find a provider who does.</p></div>
@@ -484,7 +484,7 @@ def services(L, A):
 
 
 def locations(L, A):
-    return page_hero(L, "Clinic locations", "Two clinics open now in Black Canyon City and Mayer, with a third opening soon in Camp Verde.", [("Locations", None)]) + f"""
+    return page_hero(L, "Clinic locations", "Two clinics open now in Black Canyon City and Spring Valley, with a third opening soon in Camp Verde.", [("Locations", None)]) + f"""
 <section class="band"><div class="wrap"><div class="loc-grid">{loc_card(L, 'black-canyon')}{loc_card(L, 'spring-valley')}{loc_card(L, 'camp-verde')}</div>
 <p style="margin-top:1.5rem;color:var(--muted)">All hours are Arizona time. Fax for both clinics: {FAX}.</p></div></section>"""
 
@@ -629,7 +629,7 @@ def careers(L, A):
 
 
 def about(L, A):
-    return page_hero(L, "About us", "To reduce barriers to care and to inspire hope, health and vitality.", [("About us", None)]) + f"""
+    return page_hero(L, "About us", "Our mission is to reduce barriers to care and to inspire hope, health and vitality.", [("About us", None)]) + f"""
 <section class="band"><div class="wrap split wide-left">
   <div class="prose">
     <h2>A community clinic that grew with its community</h2>
@@ -644,8 +644,8 @@ def about(L, A):
       <li><strong>2026</strong> · Awarded HRSA Health Center Program funding to open a third clinic in Camp Verde.</li>
     </ul>
   </div>
-  <div class="about-side"><figure class="photo-card"><img src="{A('img/clinic-building.jpg')}" alt="Black Canyon Community Health Center clinic building" width="1140" height="646" loading="lazy"></figure>
-  <div class="stats" style="grid-template-columns:minmax(0,1fr);margin-top:0">
+  <div class="photo-stats"><img src="{A('img/clinic-building.jpg')}" alt="" width="1140" height="646" loading="lazy">
+  <div class="stats">
     <div><strong>3,100</strong><span>Patients served in 2025, up 14% from 2024</span></div>
     <div><strong>13,594</strong><span>Patient visits in 2025</span></div>
     <div><strong>3</strong><span>Clinics, with Camp Verde opening soon</span></div>
