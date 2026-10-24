@@ -105,7 +105,7 @@ def chrome(L, A, page, body):
     bc, sv, cv = CLINICS["black-canyon"], CLINICS["spring-valley"], CLINICS["camp-verde"]
     return f"""<a class="skip" href="#main">Skip to content</a>
 <div class="utility"><div class="wrap">
-  <div class="phones"><span>Black Canyon City <a href="tel:{bc['tel']}">{bc['phone']}</a></span><span>Spring Valley <a href="tel:{sv['tel']}">{sv['phone']}</a></span></div>
+  <div class="phones"><span>Black Canyon City <a href="tel:{bc['tel']}">{bc['phone']}</a></span><span>Spring Valley <a href="tel:{sv['tel']}">{sv['phone']}</a></span><span>Camp Verde <a href="tel:{cv['tel']}">{cv['phone']}</a></span></div>
   <div class="links"><a href="{L('pay-my-bills')}">Pay a bill</a><a href="{L('careers')}">Careers</a></div>
 </div></div>
 <header class="site-header"><div class="wrap">
