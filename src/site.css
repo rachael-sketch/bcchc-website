@@ -405,3 +405,11 @@ img.avatar-lg { object-fit: cover; display: block; }
 .apply-steps span a { white-space: nowrap; }
 @media (max-width: 900px) { .apply-steps { grid-template-columns: minmax(0, 1fr); } }
 .apply-steps li { align-content: start; }
+
+/* About: stats over faded clinic photo */
+.photo-stats { position: relative; isolation: isolate; overflow: hidden; align-self: stretch; display: flex; align-items: center; padding: clamp(1.75rem, 4vw, 2.75rem); border-radius: var(--radius); box-shadow: var(--shadow-lift); }
+.photo-stats img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; z-index: -2; }
+.photo-stats::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14, 23, 44, .70), rgba(14, 23, 44, .86)); }
+.photo-stats .stats { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin: 0; width: 100%; }
+.photo-stats .stats strong { color: #fff; font-size: 2.8rem; }
+.photo-stats .stats span { color: #dbe3f0; }
