@@ -453,6 +453,7 @@ def services(L, A):
         ("Everyone", ["Treatment of acute illnesses, such as sore throat or flu, and injuries",
                       "Management of chronic conditions, including high blood pressure, high cholesterol, diabetes, allergies, heart disease and asthma",
                       "Annual exams and physicals", "Sports and school physicals", "DOT/CDL physicals for commercial drivers (Spring Valley clinic)", "TB skin tests", "Care for several related health conditions at once", "Immunizations",
+                      "EKGs", "B-12 shots", "Follow-up visits after a hospital stay",
                       "Weight management", "Help quitting smoking"]),
         ("In-office procedures", ["Joint injections (cortisone shots) for knees, shoulders and other joints",
                                   "Skin tag, mole and wart removal", "Skin biopsies", "Ingrown toenail removal",
@@ -476,6 +477,7 @@ def services(L, A):
     return page_hero(L, "Primary care services", "Family medicine for every stage of life at our clinics in Black Canyon City and Spring Valley, and soon Camp Verde.", [("Services", None)]) + f"""
 <section class="band"><div class="wrap">
   <div class="service-list">{blocks}</div>
+  <div class="callout" style="margin-top:1.75rem"><div><h2>LabCorp is right inside our clinics</h2><p>Our Black Canyon City and Spring Valley clinics each have a LabCorp lab in the office. If your provider orders lab work, just walk over and get it done the same day. No extra trip to town.</p></div></div>
 </div></section>
 <section class="band alt"><div class="wrap">
   <div class="section-head"><p class="eyebrow">More about our care</p><h2>Primary care that follows you over time</h2></div>
@@ -524,6 +526,7 @@ def location_page(key):
     <p class="actions" style="display:flex;flex-wrap:wrap;gap:.6rem"><a class="btn btn-sun" href="{c['sched']}" rel="noopener">{ICON['cal']}Book online</a><a class="btn btn-line" href="{c['maps']}" rel="noopener">{ICON['pin']}Get directions</a></p>
     <h3>Services at this clinic</h3>
     <p>Family medicine for all ages: sick visits, chronic disease care, physicals{dot}, immunizations, well-child and well-woman exams, and Medicare wellness visits. <a href="{L('services')}">See all services</a>.</p>
+    <p>LabCorp is inside this clinic, so you can get lab work done the same day as your visit.</p>
     <p>Patients with or without insurance are welcome. Ask about our <a href="{L('sliding-fee-discount-program')}">sliding fee discount</a>.</p>
   </div>
   <article class="loc"><span class="status" data-status="{key}">Mon–Fri</span><h2 style="font-size:var(--s-3)">Hours</h2>{hours_table(key)}<p style="font-size:.92rem;color:var(--muted)">Arizona time. Closed Saturday, Sunday and major holidays.</p></article>
