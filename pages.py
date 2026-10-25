@@ -466,7 +466,13 @@ def services(L, A):
                                "Referrals to partner providers for dental and prenatal care, and to specialists",
                                f'Our <a href="{L("sliding-fee-discount-program")}">Sliding Fee Discount Program</a>']),
     ]
-    blocks = "".join(f"<div><h2 style=\"font-size:var(--s-3)\">{g}</h2><ul>{''.join(f'<li>{i}</li>' for i in items)}</ul></div>" for g, items in groups)
+    # Three even cards: Everyone | procedures, 65+, behavioral health | women, children, help getting care
+    g = dict(groups)
+    columns = [["Everyone"], ["In-office procedures", "Ages 65+", "Behavioral health"], ["Women", "Children", "Help getting care"]]
+    def group_html(name, first):
+        top = "" if first else ";margin-top:.9rem"
+        return f"<h2 style=\"font-size:var(--s-3){top}\">{name}</h2><ul>{''.join(f'<li>{i}</li>' for i in g[name])}</ul>"
+    blocks = "".join("<div>" + "".join(group_html(n, k == 0) for k, n in enumerate(col)) + "</div>" for col in columns)
     return page_hero(L, "Primary care services", "Family medicine for every stage of life at our clinics in Black Canyon City and Spring Valley, and soon Camp Verde.", [("Services", None)]) + f"""
 <section class="band"><div class="wrap">
   <div class="service-list">{blocks}</div>
