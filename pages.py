@@ -436,7 +436,7 @@ def pay(L, A):
       <li><span>Enter your statement details and your card. You'll get a receipt by email.</span></li>
     </ol>
     <p><a class="btn btn-sun" href="{PAY}" rel="noopener">{ICON['card']}Pay my bill</a></p>
-    <p>You can also pay in the <a href="{PORTAL}" rel="noopener">patient portal</a> or at the front desk of either clinic.</p>
+    <p>You can also pay in the <a href="{PORTAL}" rel="noopener">patient portal</a> or at the front desk of any of our clinics.</p>
   </div>
   <div class="prose">
     <h2>Need help with a bill?</h2>
@@ -581,7 +581,7 @@ def sliding(L, A):
     <h2>How it works</h2>
     <p>Our goal is to remove cost as a reason to skip care, especially for patients and families at or below 200% of the Federal Poverty Guidelines. The discount is based only on household size and income. It's available to everyone who qualifies, whether or not you have insurance.</p>
     <ol class="steps">
-      <li><span>Pick up a sliding fee application at the front desk of either clinic.</span></li>
+      <li><span>Pick up a sliding fee application at the front desk of any of our clinics.</span></li>
       <li><span>Bring it back with proof of household income, such as recent pay stubs, a tax return or a benefits letter.</span></li>
       <li><span>We'll tell you your discount level. You pay that fee at each visit.</span></li>
     </ol>
