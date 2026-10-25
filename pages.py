@@ -452,7 +452,7 @@ def services(L, A):
     groups = [
         ("Everyone", ["Treatment of acute illnesses, such as sore throat or flu, and injuries",
                       "Management of chronic conditions, including high blood pressure, high cholesterol, diabetes, allergies, heart disease and asthma",
-                      "Annual exams and physicals", "Care for several related health conditions at once", "Immunizations",
+                      "Annual exams and physicals", "DOT/CDL physicals for commercial drivers (Spring Valley clinic)", "Care for several related health conditions at once", "Immunizations",
                       "Weight management", "Help quitting smoking"]),
         ("Women", ["Well-woman exams", "Gynecological care", "Family planning", "Hormone management"]),
         ("Children", ["Well-child checkups", "Vaccines", "Sick visits for sore throat, flu and other illnesses"]),
@@ -505,6 +505,7 @@ def location_page(key):
   <div class="actions"><a class="btn btn-line" href="{c['maps']}" rel="noopener">{ICON['pin']}Map</a></div></article>
 </div></section>"""
         other = "spring-valley" if key == "black-canyon" else "black-canyon"
+        dot = " (including DOT/CDL physicals for commercial drivers)" if key == "spring-valley" else ""
         return page_hero(L, f"{c['full']}", f"Primary care for {c['nearby']}.", [("Locations", "locations"), (c["name"], None)]) + f"""
 <section class="band"><div class="wrap split">
   <div class="prose">
@@ -513,7 +514,7 @@ def location_page(key):
     <p>Phone <a href="tel:{c['tel']}">{c['phone']}</a><br>Fax {FAX}</p>
     <p class="actions" style="display:flex;flex-wrap:wrap;gap:.6rem"><a class="btn btn-sun" href="{c['sched']}" rel="noopener">{ICON['cal']}Book online</a><a class="btn btn-line" href="{c['maps']}" rel="noopener">{ICON['pin']}Get directions</a></p>
     <h3>Services at this clinic</h3>
-    <p>Family medicine for all ages: sick visits, chronic disease care, physicals, immunizations, well-child and well-woman exams, and Medicare wellness visits. <a href="{L('services')}">See all services</a>.</p>
+    <p>Family medicine for all ages: sick visits, chronic disease care, physicals{dot}, immunizations, well-child and well-woman exams, and Medicare wellness visits. <a href="{L('services')}">See all services</a>.</p>
     <p>Patients with or without insurance are welcome. Ask about our <a href="{L('sliding-fee-discount-program')}">sliding fee discount</a>.</p>
   </div>
   <article class="loc"><span class="status" data-status="{key}">Mon–Fri</span><h2 style="font-size:var(--s-3)">Hours</h2>{hours_table(key)}<p style="font-size:.92rem;color:var(--muted)">Arizona time. Closed Saturday, Sunday and major holidays.</p></article>
@@ -784,7 +785,7 @@ PAGES = [
      "jsonld": graph(clinic_ld("black-canyon"), crumbs_ld(("Home", ""), ("Locations", "locations"), ("Black Canyon City", "locations/black-canyon")))},
     {"slug": "locations/spring-valley", "body": location_page("spring-valley"),
      "title": "Spring Valley Clinic | Family Doctor in Mayer, AZ",
-     "description": "Primary care at 17301 E. Spring Valley Road, Suite G, Mayer, AZ 86333. Open Monday–Friday, until 7 pm on Wednesdays. Call (928) 404-8004 or book online.",
+     "description": "Primary care and DOT/CDL physicals at 17301 E. Spring Valley Rd., Suite G, Mayer, AZ 86333. Open Mon–Fri, until 7 pm Wednesdays. Call (928) 404-8004.",
      "jsonld": graph(clinic_ld("spring-valley"), crumbs_ld(("Home", ""), ("Locations", "locations"), ("Spring Valley", "locations/spring-valley")))},
     {"slug": "locations/camp-verde", "body": location_page("camp-verde"),
      "title": "Camp Verde Clinic (Opening Soon) | Black Canyon Community Health Center",
