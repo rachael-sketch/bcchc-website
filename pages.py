@@ -241,7 +241,7 @@ def loc_card(L, key):
 
 
 HOME_FAQ = [
-    ("Are you accepting new patients?", "<p>Yes. Both clinics welcome new patients of all ages. <a href=\"{schedule-appointment}\">Book online</a> or call the clinic closest to you.</p>"),
+    ("Are you accepting new patients?", "<p>Yes. Our clinics welcome new patients of all ages. <a href=\"{schedule-appointment}\">Book online</a> or call the clinic closest to you.</p>"),
     ("What insurance do you take?", "<p>We bill Medicare, AHCCCS (Arizona Medicaid) and private insurance. Plans change often, so call your clinic to confirm we're in network with yours.</p>"),
     ("Can I be seen if I don't have insurance?", "<p>Yes. Everyone is welcome, with or without insurance. Our front desk can help you look into AHCCCS and other coverage, and <a href=\"{sliding-fee-discount-program}\">financial assistance</a> is available for patients who qualify.</p>"),
     ("Do you see children?", "<p>Yes. We provide well-child checkups, vaccines and sick visits for kids, so the whole family can see the same clinic.</p>"),
@@ -490,14 +490,14 @@ def services(L, A):
     <div><h3>Close to home</h3><p>Our clinics serve Black Canyon City, Spring Valley, Camp Verde and nearby rural communities, so you don't have to drive to Phoenix or Prescott for everyday care.</p></div>
   </div>
 </div></section>
-<section class="band"><div class="wrap"><div class="callout"><div><h2>Not sure if we can help?</h2><p>Call either clinic and ask. If we don't offer a service, we'll help you find a provider who does.</p></div>
+<section class="band"><div class="wrap"><div class="callout"><div><h2>Not sure if we can help?</h2><p>Call any of our clinics and ask. If we don't offer a service, we'll help you find a provider who does.</p></div>
 <div class="hero-ctas" style="margin-top:0"><a class="btn btn-sun" href="{L('schedule-appointment')}">Book an appointment</a></div></div></div></section>"""
 
 
 def locations(L, A):
     return page_hero(L, "Clinic locations", "Two clinics open now in Black Canyon City and Spring Valley, with a third opening soon in Camp Verde.", [("Locations", None)]) + f"""
 <section class="band"><div class="wrap"><div class="loc-grid">{loc_card(L, 'black-canyon')}{loc_card(L, 'spring-valley')}{loc_card(L, 'camp-verde')}</div>
-<p style="margin-top:1.5rem;color:var(--muted)">All hours are Arizona time. Fax for both clinics: {FAX}.</p></div></section>"""
+<p style="margin-top:1.5rem;color:var(--muted)">All hours are Arizona time. Fax for all three clinics: {FAX}.</p></div></section>"""
 
 
 def location_page(key):
@@ -512,7 +512,7 @@ def location_page(key):
     <p>Hours and online booking will be posted on this page when the clinic opens. Questions? Call <a href="tel:{c['tel']}">{c['phone']}</a>. Until then, Camp Verde residents are welcome at either of our current clinics.</p>
     <p><a class="btn btn-line" href="{L('locations')}">See our open clinics</a></p>
   </div>
-  <article class="loc"><span class="status soon">Opening soon</span><h3>Camp Verde Clinic</h3><div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span><a href="tel:{c['tel']}">{c['phone']}</a></div>
+  <article class="loc"><span class="status soon">Opening soon</span><h3>Camp Verde Clinic</h3><div class="meta"><span>{c['street']}</span><span>{c['city']}, AZ {c['zip']}</span><a href="tel:{c['tel']}">{c['phone']}</a><span>Fax {FAX}</span></div>
   <div class="actions"><a class="btn btn-line" href="{c['maps']}" rel="noopener">{ICON['pin']}Map</a></div></article>
 </div></section>"""
         other = "spring-valley" if key == "black-canyon" else "black-canyon"
@@ -666,7 +666,7 @@ def about(L, A):
 </div></section>
 <section class="band alt"><div class="wrap prose">
   <h2>Contact us</h2>
-  <p>Questions, compliments or concerns: <a href="mailto:{EMAIL}">{EMAIL}</a>. You can also call <a href="tel:+16233740200">(623) 374-0200</a> or <a href="tel:+19284048004">(928) 404-8004</a>.</p>
+  <p>Questions, compliments or concerns: <a href="mailto:{EMAIL}">{EMAIL}</a>. You can also call Black Canyon City at <a href="tel:{CLINICS['black-canyon']['tel']}">{CLINICS['black-canyon']['phone']}</a>, Spring Valley at <a href="tel:{CLINICS['spring-valley']['tel']}">{CLINICS['spring-valley']['phone']}</a> or Camp Verde at <a href="tel:{CLINICS['camp-verde']['tel']}">{CLINICS['camp-verde']['phone']}</a>. Fax for all three clinics: {FAX}.</p>
   <p>Help us plan for the community's needs by taking our short <a href="{SURVEY}" rel="noopener">community survey</a>.</p>
 </div></section>"""
 
@@ -769,7 +769,7 @@ def not_found(L, A):
 PAGES = [
     {"slug": "", "body": home,
      "title": "Black Canyon Community Health Center | Primary Care in Yavapai County, AZ",
-     "description": "Nonprofit family medicine for rural central Arizona, with clinics in Black Canyon City and Mayer and Camp Verde opening soon. Medicare, AHCCCS, private insurance and uninsured patients welcome.",
+     "description": "Nonprofit family medicine for rural central Arizona, with clinics in Black Canyon City and Mayer, and Camp Verde opening soon. Medicare, AHCCCS, private insurance and uninsured patients welcome.",
      "jsonld": graph(ORG_LD, clinic_ld("black-canyon"), clinic_ld("spring-valley"), clinic_ld("camp-verde"))},
     {"slug": "schedule-appointment", "body": schedule,
      "title": "Book an Appointment | Black Canyon Community Health Center",
